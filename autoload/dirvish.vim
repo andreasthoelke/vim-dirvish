@@ -129,6 +129,8 @@ function! dirvish#shdo(paths, cmd) abort
   augroup END
 
   nnoremap <buffer><silent> Z! :silent write<Bar>exe '!'.(has('win32')?'':shellescape(&shell)).' %'<Bar>if !v:shell_error<Bar>close<Bar>endif<CR>
+  " Quick Patch: Added a convenient "silent" 'z' buffer local map for the Shdo command window 
+  nmap <buffer> <localleader>z Z!<cr>
 endfunction
 
 " Returns true if the buffer was modified by the user.
